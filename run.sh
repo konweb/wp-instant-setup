@@ -44,7 +44,7 @@ bin/wp core config \
 --dbuser="$DB_USER" \
 --dbpass="$DB_PASS" \
 --dbprefix=wp_ \
---locale=en_US \
+--locale=ja \
 --extra-php <<PHP
 define( 'JETPACK_DEV_DEBUG', true );
 define( 'WP_DEBUG', true );
@@ -55,7 +55,7 @@ bin/wp core config \
 --dbname=$DB_NAME \
 --dbuser=$DB_USER \
 --dbprefix=wp_ \
---locale=en_US \
+--locale=ja \
 --extra-php <<PHP
 define( 'JETPACK_DEV_DEBUG', true );
 define( 'WP_DEBUG', true );
