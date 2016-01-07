@@ -35,7 +35,7 @@ else
     echo "CREATE DATABASE $DB_NAME DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;" | mysql -u$DB_USER
 fi
 
-bin/wp core download --path=$WP_PATH --locale=en_US --force
+bin/wp core download --path=$WP_PATH --locale=ja --force
 
 if [ $DB_PASS ]; then
 bin/wp core config \
