@@ -9,7 +9,6 @@ if ! mysql -V ; then
     fi
 fi
 
-
 DB_USER=${1-root}
 DB_PASS=$2
 DB_NAME=${3-wpdev}
@@ -79,6 +78,7 @@ bin/wp rewrite structure "/archives/%post_id%"
 
 bin/wp option update blogname "$WP_TITLE"
 bin/wp option update blogdescription "$WP_DESC"
+bin/wp core language install ja && bin/wp core language activate ja
 
 if [ -e "provision-post.sh" ]; then
     bash provision-post.sh
@@ -89,5 +89,10 @@ if [ $? = 0 ]; then
     bash install-plugin.sh
 fi
 
-open http://127.0.0.1:$PORT
-bin/wp server --host=0.0.0.0 --port=$PORT --docroot=$WP_PATH
+bin/wp scaffold _s origin
+bin/wp theme delete twentyfifteen twentyfourteen
+
+if [ $? = 0 ]; then
+    open http://127.0.0.1:$PORT
+    bin/wp server --host=0.0.0.0 --port=$PORT --docroot=$WP_PATH
+fi
