@@ -22,7 +22,7 @@ $ curl https://.../run.sh | bash -s <db-user> <db-pass> <db-name>
 or
 
 ```
-$ ./run.sh <db-user> <db-pass> <db-name>
+$ ./run.sh <db-user> <db-pass> <db-name> <port>
 ```
 
 ### Defaults
@@ -30,18 +30,19 @@ $ ./run.sh <db-user> <db-pass> <db-name>
 * db-user: `root`
 * db-pass: (empty)
 * db-name: `wpdev`
+* port: `8080`
 
 ## How to use
 
 ```
 $ mkdir ~/Desktop/wordpress && cd $_
-$ curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash
+$ curl https://raw.githubusercontent.com/konweb/wp-instant-setup/master/run.sh | bash
 ```
 
 Or
 
 ```
-$ git clone git@github.com:miya0001/wp-instant-setup.git && cd wp-instant-setup
+$ git clone git@github.com:konweb/wp-instant-setup.git && cd wp-instant-setup
 $ ./run.sh
 ```
 
@@ -49,13 +50,13 @@ $ ./run.sh
 
 ```
 $ mkdir ~/Desktop/wordpress && cd $_
-$ curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash -s root root
+$ curl https://raw.githubusercontent.com/konweb/wp-instant-setup/master/run.sh | bash -s root root
 ```
 
 Or
 
 ```
-$ git clone git@github.com:miya0001/wp-instant-setup.git && cd wp-instant-setup
+$ git clone git@github.com:konweb/wp-instant-setup.git && cd wp-instant-setup
 $ ./run.sh root root
 ```
 
@@ -69,7 +70,7 @@ $ ./run.sh root root
 Add alias into your `~/.bash_profile` like following.
 
 ```
-alias wpserve="curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash -s <db-user> <db-pass>"
+alias wpserve="curl https://raw.githubusercontent.com/konweb/wp-instant-setup/master/run.sh | bash -s <db-user> <db-pass>"
 ```
 
 Then just run:

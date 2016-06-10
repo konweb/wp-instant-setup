@@ -2,12 +2,15 @@
 
 set -ex;
 
-mysql.server start
+brew install mysql
+if [ $? -eq 0 ]; then
+    mysql.server start
+fi
 
 DB_USER=${1-root}
 DB_PASS=$2
 DB_NAME=${3-wpdev}
-PORT=8080
+PORT=${4-8080}
 WP_PATH=$(pwd)/www
 WP_TITLE='Welcome to the WordPress'
 WP_DESC='Hello World!'
@@ -35,7 +38,7 @@ else
     echo "CREATE DATABASE $DB_NAME DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;" | mysql -u$DB_USER
 fi
 
-bin/wp core download --path=$WP_PATH --locale=ja --force
+bin/wp core download --path=$WP_PATH --locale=en_US --force
 
 if [ $DB_PASS ]; then
 bin/wp core config \
@@ -44,10 +47,10 @@ bin/wp core config \
 --dbuser="$DB_USER" \
 --dbpass="$DB_PASS" \
 --dbprefix=wp_ \
---locale=ja \
+--locale=en_US \
 --extra-php <<PHP
 define( 'JETPACK_DEV_DEBUG', true );
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 PHP
 else
 bin/wp core config \
@@ -55,10 +58,10 @@ bin/wp core config \
 --dbname=$DB_NAME \
 --dbuser=$DB_USER \
 --dbprefix=wp_ \
---locale=ja \
+--locale=en_US \
 --extra-php <<PHP
 define( 'JETPACK_DEV_DEBUG', true );
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 PHP
 fi
 
@@ -76,6 +79,11 @@ bin/wp option update blogdescription "$WP_DESC"
 
 if [ -e "provision-post.sh" ]; then
     bash provision-post.sh
+fi
+
+# clone wp-instant-setup complated
+if [ $? = 0 ]; then
+    bash install-plugin.sh
 fi
 
 open http://127.0.0.1:$PORT
