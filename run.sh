@@ -2,10 +2,13 @@
 
 set -ex;
 
-brew install mysql
-if [ $? -eq 0 ]; then
-    mysql.server start
+if ! mysql -V ; then
+    brew install mysql
+    if [ $? -ne 0 ]; then
+        mysql.server start
+    fi
 fi
+
 
 DB_USER=${1-root}
 DB_PASS=$2
