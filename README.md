@@ -42,8 +42,8 @@ $ curl https://raw.githubusercontent.com/konweb/wp-instant-setup/master/run.sh |
 Or
 
 ```
-$ git clone git@github.com:konweb/wp-instant-setup.git && cd wp-instant-setup
-$ ./run.sh
+$ git clone https://github.com/konweb/wp-instant-setup && cd wp-instant-setup
+$ ./run.sh root root
 ```
 
 ### For MAMP users
@@ -56,7 +56,7 @@ $ curl https://raw.githubusercontent.com/konweb/wp-instant-setup/master/run.sh |
 Or
 
 ```
-$ git clone git@github.com:konweb/wp-instant-setup.git && cd wp-instant-setup
+$ git clone https://github.com/konweb/wp-instant-setup && cd wp-instant-setup
 $ ./run.sh root root
 ```
 
