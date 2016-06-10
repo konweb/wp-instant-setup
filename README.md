@@ -16,7 +16,7 @@ WordPress development environment with PHP built-in web server + WP-CLI.
 ## Uage
 
 ```
-$ curl https://.../run.sh | bash -s <db-user> <db-pass> <db-name>
+$ curl https://.../run.sh | bash -s <db-user> <db-pass> <db-name> <port>
 ```
 
 or
@@ -76,5 +76,5 @@ alias wpserve="curl https://raw.githubusercontent.com/konweb/wp-instant-setup/ma
 Then just run:
 
 ```
-$ wpserve <db-name>
+$ wpserve <db-name> <port>
 ```
