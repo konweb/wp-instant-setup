@@ -14,7 +14,7 @@ WordPress development environment with PHP built-in web server + WP-CLI.
 * [Composer](https://getcomposer.org/)
 * [Mailcatcher](http://mailcatcher.me/)
 
-## Uage
+## Usage
 
 ```
 $ curl https://.../run.sh | bash -s <db-user> <db-pass> <db-name> <port>
