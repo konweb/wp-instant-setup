@@ -93,6 +93,11 @@ wp scaffold _s origin
 wp theme delete twentyfifteen twentyfourteen
 
 if [ $? = 0 ]; then
+    curl http://loripsum.net/api/10/short/decorate/headers/ul/ol/dl/bq/code/link | wp post generate --post_type=post --post_content --count=10
+    curl http://loripsum.net/api/10/short/decorate/headers/ul/ol/dl/bq/code/link | wp post generate --post_type=page --post_content --count=10
+fi
+
+if [ $? = 0 ]; then
     open http://127.0.0.1:$PORT
     bin/wp server --host=0.0.0.0 --port=$PORT --docroot=$WP_PATH
 fi
