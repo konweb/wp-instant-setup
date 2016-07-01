@@ -89,8 +89,8 @@ if [ $? = 0 ]; then
     bash install-plugin.sh
 fi
 
-bin/wp scaffold _s origin
-bin/wp theme delete twentyfifteen twentyfourteen
+wp scaffold _s origin
+wp theme delete twentyfifteen twentyfourteen
 
 if [ $? = 0 ]; then
     open http://127.0.0.1:$PORT
